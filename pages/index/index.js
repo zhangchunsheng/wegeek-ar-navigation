@@ -8,6 +8,7 @@ Page({
   data: {
     videos: [],
       videoContext: null,
+      videoId: null,
       vedioSrc: "",
       cameraChangeTag: "back",
       hiddenTag:"true",
@@ -62,11 +63,24 @@ Page({
   viewVideo(e) {
       console.log(e);
       var id = e.currentTarget.dataset.id;
-      if(this.videoContext) {
-          this.videoContext.pause();
+      if(this.videoId == 'v' + id) {
+          this.videoContext = wx.createVideoContext('v' + id);
+          if(this.played) {
+              this.videoContext.pause();
+              this.played = false;
+          } else {
+              this.videoContext.play();
+              this.played = true;
+          }
+      } else {
+          if(this.videoContext) {
+              this.videoContext.pause();
+          }
+          this.videoId = 'v' + id;
+          this.videoContext = wx.createVideoContext('v' + id);
+          this.videoContext.play();
+          this.played = true;
       }
-      this.videoContext = wx.createVideoContext('v' + id);
-      this.videoContext.play();
   },
 
     /**
