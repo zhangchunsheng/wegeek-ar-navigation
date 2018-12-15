@@ -1,6 +1,6 @@
 <template name="m-video">
   <view class="m-video" bindtap="viewVideo" data-id="{{ video.id }}" data-name="{{ video.name }}" wx:if="{{ mode === 1 || mode === 2 }}">
-    <video class="cover" src="{{ video.cover_image_w640 }}" mode="aspectFill"></video>
+    <video class="cover" src="{{ video.cover_image_w640 }}"></video>
     <view class="info">
       <text class="h2">{{ video.name }}</text>
       <view class="detail">
@@ -16,7 +16,7 @@
   </view>
   <view class="m-video-s" bindtap="viewVideo" data-id="{{ video.id }}" data-name="{{ video.name }}"  wx:if="{{ mode === 3 }}">
     <view class="mask"></view>
-    <video class="cover" src="{{ video.cover_image_w640 }}" mode="aspectFill"></video>
+    <video class="cover" src="{{ video.cover_image_w640 }}"></video>
     <view class="info">
       <view class="title">{{ video.name }}</view>
       <view class="detail"><view><text>{{ video.date_added }}</text></view><view><text>{{ video.day_count }}天</text></view></view>
