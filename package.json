@@ -1,0 +1,17 @@
+{
+  "name": "luomor_ar_navigation",
+  "version": "1.0.0",
+  "description": "烙馍智行",
+  "main": "app.js",
+  "scripts": {
+    "lint": "eslint"
+  },
+  "keywords": ["luomor", "ar"],
+  "author": "Chunsheng zhang <zhangchunsheng423@gmail.com>",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "eslint": "^3.9.1",
+    "eslint-config-airbnb-base": "^9.0.0",
+    "eslint-plugin-import": "^2.0.1"
+  }
+}
