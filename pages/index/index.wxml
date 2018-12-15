@@ -12,11 +12,8 @@
 
 <import src="../../components/video/video.wxml"/>
 
-<scroll-view class="list" style="height: {{ windowHeight }}px; width: {{ windowWidth }}px;" scroll-y="true"  bindscrolltolower="loadMore" lower-threshold="800">
+<view class="list" style="height: {{ windowHeight }}px; width: {{ windowWidth }}px;" scroll-y="true">
   <block wx:for="{{ videos }}" wx:for-item="video" wx:key="video.data[0].id">
     <template is="m-video" wx:if="{{ video.type === 4 }}" data="{{video: video.data[0], mode: 1}}" />
   </block>
-  <view class="loading">
-    正在加载...
-  </view>
-</scroll-view>
+</view>

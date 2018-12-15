@@ -7,6 +7,7 @@ const formatTime = util.formatTime;
 Page({
   data: {
     videos: [],
+      videoContext: null,
       vedioSrc: "",
       cameraChangeTag: "back",
       hiddenTag:"true",
@@ -19,7 +20,7 @@ Page({
     this.loadMore();
   },
   onPullDownRefresh() {
-      loadMore();
+      //loadMore();
   },
   loadMore(e, needRefresh) {
     const self = this;
@@ -59,7 +60,13 @@ Page({
     });
   },
   viewVideo(e) {
-
+      console.log(e);
+      var id = e.currentTarget.dataset.id;
+      if(this.videoContext) {
+          this.videoContext.pause();
+      }
+      this.videoContext = wx.createVideoContext('v' + id);
+      this.videoContext.play();
   },
 
     /**
