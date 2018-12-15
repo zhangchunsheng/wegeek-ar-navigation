@@ -16,7 +16,7 @@ Page({
     windowHeight: App.systemInfo.windowHeight,
   },
   onLoad() {
-    //this.loadMore();
+    this.loadMore();
   },
   onPullDownRefresh() {
       loadMore();
@@ -33,10 +33,10 @@ Page({
     self.setData({
       loading: true,
     });
-    api.getHotTripList({
+    api.getVideoList({
       data,
       success: (res) => {
-        let newList = res.data.data.elements;
+        let newList = res.data.result.elements;
         newList.map((video) => {
           const item = video;
           item.data[0].date_added = formatTime(new Date(item.data[0].date_added * 1000), 1);
@@ -50,7 +50,7 @@ Page({
         self.setData({
             videos: newList,
         });
-        const nextStart = res.data.data.next_start;
+        const nextStart = res.data.result.next_start;
         self.setData({
           start: nextStart,
           loading: false,

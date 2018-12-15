@@ -1,4 +1,5 @@
 const apiURL = 'https://api.breadtrip.com';
+const wegeekURL = 'https://around.luomor.com';
 
 const wxRequest = (params, url) => {
   wx.request({
@@ -27,8 +28,8 @@ const wxRequest = (params, url) => {
   });
 };
 
-const getHotTripList = (params) => {
-  wxRequest(params, `${apiURL}/v2/index/`);
+const getVideoList = (params) => {
+  wxRequest(params, `${wegeekURL}/wegeek/getVideoList`);
 };
 const getExplorePlaceList = (params) => {
   wxRequest(params, `${apiURL}/destination/v3/`);
@@ -56,7 +57,7 @@ const getWaypointReplyByID = (params) => {
 };
 
 module.exports = {
-  getHotTripList,
+    getVideoList,
   getExplorePlaceList,
   getPlaceInfoByID,
   getPlacePOIByID,

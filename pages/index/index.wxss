@@ -12,6 +12,13 @@ page {
 .m-video {
   margin: 20rpx;
 }
+.ar_narrow {
+    position: absolute;
+    top: 200px;
+    left: 44%;
+    width: 60px;
+    height: 60px;
+}
 .video-title {
   margin-bottom: 10rpx;
 }
