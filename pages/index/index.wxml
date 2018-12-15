@@ -1,8 +1,18 @@
-<import src="../../components/trip/trip.wxml"/>
+<camera device-position="{{cameraChangeTag}}" hidden="{{hiddenTag}}" flash="off" binderror="error" style="width: 100%; height: 300px;">
+     <cover-view class="hintTxt">
+        AR导航
+      </cover-view>
+</camera>
+<video src="{{vedioSrc}}" id="myVideo" hidden="{{!hiddenTag}}" style="width: 100%; height: 320px;"></video>
+
+<button type="primary" bindtap="openVedio" style="margin:10px">开始导航</button>
+<button type="primary" bindtap="stopVedio" style="margin:10px">关闭导航</button>
+
+<import src="../../components/video/video.wxml"/>
 
 <scroll-view class="list" style="height: {{ windowHeight }}px; width: {{ windowWidth }}px;" scroll-y="true"  bindscrolltolower="loadMore" lower-threshold="800">
-  <block wx:for="{{ trips }}" wx:for-item="trip" wx:key="trip.data[0].id">
-    <template is="m-trip" wx:if="{{ trip.type === 4 }}" data="{{trip: trip.data[0], mode: 1}}" />
+  <block wx:for="{{ videos }}" wx:for-item="video" wx:key="video.data[0].id">
+    <template is="m-video" wx:if="{{ video.type === 4 }}" data="{{video: video.data[0], mode: 1}}" />
   </block>
   <view class="loading">
     正在加载...

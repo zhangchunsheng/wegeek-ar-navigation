@@ -1,14 +1,18 @@
-@import "../../components/trip/trip.wxss";
+@import "../../components/video/video.wxss";
 
 page {
   background-color: #f6f6f6;
 }
 .list {
 }
-.m-trip {
+.camera {
+  height: 1080rpx;
+  width: 750rpx;
+}
+.m-video {
   margin: 20rpx;
 }
-.trip-title {
+.video-title {
   margin-bottom: 10rpx;
 }
 .loading {

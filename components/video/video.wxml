@@ -1,0 +1,26 @@
+<template name="m-video">
+  <view class="m-video" bindtap="viewTrip" data-id="{{ video.id }}" data-name="{{ video.name }}" wx:if="{{ mode === 1 || mode === 2 }}">
+    <video class="cover" src="{{ video.cover_image_w640 }}" mode="aspectFill"></video>
+    <view class="info">
+      <text class="h2">{{ video.name }}</text>
+      <view class="detail">
+        <view><text>{{ video.date_added }}</text><text>{{ video.day_count }}天</text><text wx:if="{{ mode === 1 }}">{{ video.view_count }}次浏览</text></view>
+        <view class="place" wx:if="{{ mode === 1 }}">{{ video.popular_place_str }}</view>
+      </view>
+      <view class="user" wx:if="{{ mode === 1 }}">
+        <image class="avatar" src="{{ video.user.avatar_l }}"></image>
+        <view class="name">by {{ video.user.name }}</view>
+      </view>
+      <view class="bottom" wx:if="{{ mode === 2 }}">{{ video.view_count }}次浏览 / {{ video.liked_count }}喜欢 / {{ video.total_comments_count }}评论</view>
+    </view>
+  </view>
+  <view class="m-video-s" bindtap="viewTrip" data-id="{{ video.id }}" data-name="{{ video.name }}"  wx:if="{{ mode === 3 }}">
+    <view class="mask"></view>
+    <video class="cover" src="{{ video.cover_image_w640 }}" mode="aspectFill"></video>
+    <view class="info">
+      <view class="title">{{ video.name }}</view>
+      <view class="detail"><view><text>{{ video.date_added }}</text></view><view><text>{{ video.day_count }}天</text></view></view>
+    </view>
+    <view class="stat"><view><text>{{ video.waypoints }}</text>足迹</view><view><text>{{ video.recommendations }}</text>收藏</view></view>
+  </view>
+</template>

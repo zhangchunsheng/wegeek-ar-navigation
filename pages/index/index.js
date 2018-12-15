@@ -6,17 +6,20 @@ const formatTime = util.formatTime;
 
 Page({
   data: {
-    trips: [],
+    videos: [],
+      vedioSrc: "",
+      cameraChangeTag: "back",
+      hiddenTag:"true",
     start: 0,
     loading: false,
     windowWidth: App.systemInfo.windowWidth,
     windowHeight: App.systemInfo.windowHeight,
   },
   onLoad() {
-    this.loadMore();
+    //this.loadMore();
   },
   onPullDownRefresh() {
-    this.loadMore(null, true);
+      loadMore();
   },
   loadMore(e, needRefresh) {
     const self = this;
@@ -34,18 +37,18 @@ Page({
       data,
       success: (res) => {
         let newList = res.data.data.elements;
-        newList.map((trip) => {
-          const item = trip;
+        newList.map((video) => {
+          const item = video;
           item.data[0].date_added = formatTime(new Date(item.data[0].date_added * 1000), 1);
           return item;
         });
         if (needRefresh) {
           wx.stopPullDownRefresh();
         } else {
-          newList = self.data.trips.concat(newList);
+          newList = self.data.videos.concat(newList);
         }
         self.setData({
-          trips: newList,
+            videos: newList,
         });
         const nextStart = res.data.data.next_start;
         self.setData({
@@ -55,10 +58,66 @@ Page({
       },
     });
   },
-  viewTrip(e) {
-    const ds = e.currentTarget.dataset;
-    wx.navigateTo({
-      url: `../trip/trip?id=${ds.id}&name=${ds.name}`,
-    });
+  viewVideo(e) {
+
   },
+
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady: function () {
+        if (wx.createCameraContext()) {
+            // this.cameraContext = wx.createCameraContext('myCamera')
+        } else {
+            // 如果希望用户在最新版本的客户端上体验您的小程序，可以这样子提示
+            wx.showModal({
+                title: '提示',
+                content: '当前微信版本过低，无法使用该功能，请升级到最新微信版本后重试。'
+            })
+        };
+
+        this.audioCtx = wx.createAudioContext('myAudio');
+    },
+
+    openVedio() {
+        this.setData({
+            hiddenTag: false
+        });
+        this.audioCtx.play();
+        const ctx = wx.createCameraContext();
+        ctx.startRecord ({
+            success: (res) => {
+            this.setData({
+              vedioSrc: res.tempVideoPath
+            })
+        }
+      })
+    },
+
+    stopVedio() {
+        this.setData({
+            hiddenTag: true
+        });
+        this.audioCtx.pause();
+        const ctx = wx.createCameraContext();
+        ctx.stopRecord  ({
+            success: (res) => {
+            this.setData({
+              vedioSrc: res.tempVideoPath
+            })
+          }
+        })
+    },
+
+    changeDevicePosition(){
+        if(this.data.cameraChangeTag === "back"){
+            this.setData({
+                cameraChangeTag: "front"
+            })
+        }else{
+            this.setData({
+                cameraChangeTag: "back"
+            })
+        }
+    },
 });
