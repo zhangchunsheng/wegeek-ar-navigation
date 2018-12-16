@@ -1,0 +1,8 @@
+<view class="index">
+  <view class="index-hd">
+    <view class="index-desc">AI in Wechat</view>
+  </view>
+  <view class="index-bd">
+    <text>{{text}}</text>
+  </view>
+</view>

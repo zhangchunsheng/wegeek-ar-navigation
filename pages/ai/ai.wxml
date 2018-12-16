@@ -1,0 +1,11 @@
+<view class="index">
+  <view class="index-hd">
+    <view class="index-desc">AI in Wechat</view>
+  </view>
+  <view class="index-bd">
+    <view class="kind-list">
+      <button class="kind-list-item" bindtap="nav_tfjs">tfjs</button>
+      <button class="kind-list-item" bindtap="nav_mnist">MNIST</button>
+    </view>
+  </view>
+</view>

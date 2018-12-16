@@ -6,12 +6,18 @@
   "scripts": {
     "lint": "eslint"
   },
-  "keywords": ["luomor", "ar"],
+  "keywords": [
+    "luomor",
+    "ar"
+  ],
   "author": "Chunsheng zhang <zhangchunsheng423@gmail.com>",
   "license": "Apache-2.0",
   "devDependencies": {
     "eslint": "^3.9.1",
     "eslint-config-airbnb-base": "^9.0.0",
     "eslint-plugin-import": "^2.0.1"
+  },
+  "dependencies": {
+    "@tensorflow/tfjs": "^0.14.1"
   }
 }

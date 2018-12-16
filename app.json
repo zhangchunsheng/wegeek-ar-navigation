@@ -1,6 +1,9 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/ai/ai",
+    "pages/tfjs/tfjs",
+    "pages/mnist/mnist",
     "pages/explore/explore",
     "pages/destination/destination",
     "pages/poi_list/poi_list",
@@ -26,7 +29,7 @@
       "selectedIconPath": "images/index_pressed.png",
       "text": "AR导航"
     }, {
-      "pagePath": "pages/explore/explore",
+      "pagePath": "pages/ai/ai",
       "iconPath": "images/explore_normal.png",
       "selectedIconPath": "images/explore_pressed.png",
       "text": "AI"
