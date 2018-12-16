@@ -1,6 +1,6 @@
 Page({
     data: {
-        text: "result",
+        text: "can't run tensorflow",
     },
     onReady: function () {
         this.setData({
