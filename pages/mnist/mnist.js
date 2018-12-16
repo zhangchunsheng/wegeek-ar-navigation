@@ -4,7 +4,7 @@ Page({
     },
     onReady: function () {
         this.setData({
-            text: "",
+            text: "can't run tensorflow",
         });
     },
 });
