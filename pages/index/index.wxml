@@ -8,7 +8,7 @@
 <button type="primary" bindtap="openVedio" style="margin:10px">开始导航（only camera）</button>
 <button type="primary" bindtap="stopVedio" style="margin:10px">关闭导航</button>
 
-<text>期望最终效果如以下视频所示，期望使用tfjs在小程序上进行物体识别</text>
+<text>期望最终效果如以下视频所示，期望使用tfjs在小程序上进行物体识别，很遗憾tfjs无法在小程序模式运行</text>
 
 <import src="../../components/video/video.wxml"/>
 
