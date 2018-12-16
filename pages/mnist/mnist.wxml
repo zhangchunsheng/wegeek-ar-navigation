@@ -3,6 +3,6 @@
     <view class="index-desc">AI in Wechat</view>
   </view>
   <view class="index-bd">
-    <text>{{text}}</text>
+    <text class="result">{{text}}</text>
   </view>
 </view>
